@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: supermario-deployment
+  namespace: default
   labels:
     app: supermario
 spec:
-  replicas: 3
+  replicas: 6
   selector:
     matchLabels:
       app: supermario
