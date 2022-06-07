@@ -16,13 +16,13 @@ spec:
         app: supermario
     spec:
       topologySpreadConstraints:
-        - maxSkew: 1
+        - maxSkew: 2
           topologyKey: "topology.kubernetes.io/zone"
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
               app: supermario
-        - maxSkew: 1
+        - maxSkew: 2
           topologyKey: "kubernetes.io/hostname"
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:

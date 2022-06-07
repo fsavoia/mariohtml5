@@ -91,7 +91,7 @@ spec:
           name: autoscaler
           command:
             - ./cluster-proportional-autoscaler
-            - --namespace=default
+            - --namespace=overprovisioning
             - --configmap=overprovisioning-autoscaler
             - --target=deployment/overprovisioning
             - --logtostderr=true
