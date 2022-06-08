@@ -16,12 +16,9 @@ metadata:
   namespace: overprovisioning
 data:
   linear: |-
-    {
-      "coresPerReplica": 10,
-      "nodesPerReplica": 1,
-      "min": 1,
-      "max": 100,
-      "preventSinglePointFailure": true      
+    { 
+      "coresPerReplica": 35,
+      "preventSinglePointFailure": true
     }
 ---
 kind: ClusterRole
@@ -130,5 +127,4 @@ spec:
         image: k8s.gcr.io/pause
         resources:
           requests:
-            cpu: "3000m"
-            memory: "4000Mi"
+            cpu: 7
