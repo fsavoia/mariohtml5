@@ -20,12 +20,13 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/security-groups: sg-092f306ca87f9b148
-    alb.ingress.kubernetes.io/subnets: subnet-0e7275967f9666a8d,subnet-06c4c88b591ef5060, subnet-0b8da0b8b8a4f23b5
+    alb.ingress.kubernetes.io/security-groups: sg-0fdf30350615de9fe
+    alb.ingress.kubernetes.io/subnets: subnet-0ddc4f7c145777848,subnet-0dee11d27220bb338,subnet-0efae4e6efd448e41
     alb.ingress.kubernetes.io/healthcheck-path: /
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:sa-east-1:652839185683:certificate/f1d23004-9380-47c1-a6e7-f9b4940c7fb4
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:sa-east-1:652839185683:certificate/f1d23004-9380-47c1-a6e7-f9b4940c7fb4
+    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    # alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
   ingressClassName: alb
   rules:

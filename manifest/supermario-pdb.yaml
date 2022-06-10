@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: supermario-pdb
+spec:
+  maxUnavailable: "30%"
+  selector:
+    matchLabels:
+      app: supermario

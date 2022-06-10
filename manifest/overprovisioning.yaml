@@ -17,7 +17,7 @@ metadata:
 data:
   linear: |-
     { 
-      "coresPerReplica": 35,
+      "coresPerReplica": 70,
       "preventSinglePointFailure": true
     }
 ---
@@ -78,11 +78,7 @@ spec:
         app: overprovisioning-autoscaler
     spec:
       nodeSelector:
-          karpenter: "true"
-      tolerations:
-      - key: "kubernetes.io/karpenter-taint"
-        operator: "Exists"
-        effect: "NoSchedule"
+          eks.amazonaws.com/nodegroup: "ng_managed"
       containers:
         - image: gcr.io/google_containers/cluster-proportional-autoscaler-amd64:1.7.1
           name: autoscaler

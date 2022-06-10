@@ -6,7 +6,11 @@ metadata:
   labels:
     app: supermario
 spec:
-  replicas: 1
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:    
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: supermario
@@ -22,11 +26,30 @@ spec:
           labelSelector:
             matchLabels:
               app: supermario
-      nodeSelector:
-          karpenter: "true"
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: eks/nodegroup-name
+                operator: In
+                values:
+                - ng_app_managed
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: karpenter
+                operator: In
+                values:
+                - "true"
       tolerations:
       - key: "kubernetes.io/karpenter-taint"
         operator: "Exists"
+        effect: "NoSchedule"
+      - key: "dedicated"
+        operator: "Equal"
+        value: "application"
         effect: "NoSchedule"
       containers:
       - name: supermario
@@ -37,3 +60,15 @@ spec:
           requests:
             memory: "256Mi"
             cpu: 200m
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          failureThreshold: 3
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 5

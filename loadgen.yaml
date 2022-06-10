@@ -1,20 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: loadgen
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: load_gen
+    app: loadgen
   name: loadgen
   namespace: loadgen
 spec:
-  replicas: 1
+  replicas: 40  
   selector:
     matchLabels:
-      app: load_gen
+      app: loadgen
   template:
     metadata:
       labels:
-        app: load_gen
+        app: loadgen
     spec:
+      nodeSelector:
+          eks.amazonaws.com/nodegroup: "ng_managed"
       containers:
       - command:
         - /bin/sh

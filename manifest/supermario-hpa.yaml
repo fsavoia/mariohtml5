@@ -8,18 +8,18 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: supermario-deployment
-  minReplicas: 1
-  maxReplicas: 200
+  minReplicas: 3
+  maxReplicas: 30
   metrics:
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: 80
-    # - type: Resource
-    #   resource:
-    #     name: cpu
-    #     target:
-    #       type: Utilization
-    #       averageUtilization: 40
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
