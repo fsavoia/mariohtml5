@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: supermario-svc
-  namespace: default
+  namespace: supermario
 spec:
   selector:
     app: supermario
@@ -15,13 +15,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: supermario-ingress
+  namespace: supermario
   labels:
     app: supermario
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/security-groups: sg-0fdf30350615de9fe
-    alb.ingress.kubernetes.io/subnets: subnet-0ddc4f7c145777848,subnet-0dee11d27220bb338,subnet-0efae4e6efd448e41
+    alb.ingress.kubernetes.io/security-groups: sg-0e0e45dcd3b5d9802
+    alb.ingress.kubernetes.io/subnets: subnet-00b96ae2ae0e261ce,subnet-0a8fb75f7e231be70,subnet-0062d4016e964988b
     alb.ingress.kubernetes.io/healthcheck-path: /
     # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:sa-east-1:652839185683:certificate/f1d23004-9380-47c1-a6e7-f9b4940c7fb4
     # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'

@@ -1,8 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: supermario
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: keda-sqs
+  namespace: supermario
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::652839185683:role/eks-cluster-keda"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: supermario-deployment
-  namespace: default
+  namespace: supermario
   labels:
     app: supermario
 spec:
@@ -75,3 +88,4 @@ spec:
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 5
+      serviceAccountName: keda-sqs
