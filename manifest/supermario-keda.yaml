@@ -23,10 +23,10 @@ spec:
     metadata:
       type: Utilization
       value: "80"
-  - type: cpu
-    metadata:
-      type: Utilization
-      value: "60"
+  # - type: cpu
+  #   metadata:
+  #     type: Utilization
+  #     value: "60"
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
