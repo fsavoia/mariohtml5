@@ -19,7 +19,6 @@ metadata:
   labels:
     app: supermario
 spec:
-  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:    
@@ -72,10 +71,10 @@ spec:
         - containerPort: 8080
         resources:
           requests:
-            memory: "134Mi"
+            memory: "126Mi"
             cpu: 50m
           limits:
-            memory: "134Mi"
+            memory: "126Mi"
             cpu: 50m
         livenessProbe:
           httpGet:
