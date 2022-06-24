@@ -19,6 +19,7 @@ metadata:
   labels:
     app: supermario
 spec:
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:    
