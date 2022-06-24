@@ -3,14 +3,14 @@ kind: Namespace
 metadata:
   name: supermario
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: keda-sqs
-  namespace: supermario
-  annotations:
-    eks.amazonaws.com/role-arn: "arn:aws:iam::652839185683:role/eks-cluster-keda"
----
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: keda-sqs
+#   namespace: supermario
+#   annotations:
+#     eks.amazonaws.com/role-arn: "arn:aws:iam::652839185683:role/eks-cluster-keda"
+# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
