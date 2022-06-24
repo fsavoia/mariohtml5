@@ -59,10 +59,10 @@ spec:
         - containerPort: 8080
         resources:
           requests:
-            memory: "128Mi"
+            memory: "126Mi"
             cpu: 50m
           limits:
-            memory: "128Mi"
+            memory: "126Mi"
             cpu: 50m
         livenessProbe:
           httpGet:
