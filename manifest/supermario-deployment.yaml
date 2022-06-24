@@ -64,15 +64,3 @@ spec:
           limits:
             memory: "126Mi"
             cpu: 50m
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          failureThreshold: 3
-          periodSeconds: 60
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 5
