@@ -6,12 +6,12 @@ metadata:
   labels:
     app: supermario
 spec:
-  replicas: 5
+  # replicas: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:    
       maxUnavailable: 80%
-      maxSurge: "100%"
+      # maxSurge: "100%"
   selector:
     matchLabels:
       app: supermario

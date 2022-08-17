@@ -21,8 +21,8 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/security-groups: sg-0e0e45dcd3b5d9802
-    alb.ingress.kubernetes.io/subnets: subnet-00b96ae2ae0e261ce,subnet-0a8fb75f7e231be70,subnet-0062d4016e964988b
+    alb.ingress.kubernetes.io/security-groups: sg-01766d2310020e073
+    alb.ingress.kubernetes.io/subnets: subnet-0cd088687059d4739,subnet-04e5377f6de7cc2de,subnet-079b67bb8248e0882
     alb.ingress.kubernetes.io/healthcheck-path: /
     # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:sa-east-1:652839185683:certificate/f1d23004-9380-47c1-a6e7-f9b4940c7fb4
     # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
