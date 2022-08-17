@@ -3,7 +3,6 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
       - echo "Installing jq, awscli and kubectl"
       - apt-get update && apt-get -y install jq
       - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
