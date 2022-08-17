@@ -14,7 +14,7 @@ phases:
   pre_build:
     commands:
       - echo "Setting image in deployment and log in to ECR"
-      - TAG="$(date +%Y-%m-%d.%H.%M.%S)-$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 5)"
+      - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 5)"
       - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' manifest/supermario-deployment.yaml
       - export KUBECONFIG=$HOME/.kube/config
   build:
