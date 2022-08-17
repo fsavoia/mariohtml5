@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
       - echo "Installing jq, awscli and kubectl"
       - apt-get update && apt-get -y install jq
       - export PATH="$PATH:/usr/local/bin"
@@ -32,4 +33,4 @@ phases:
       - export AWS_SESSION_TOKEN="$(echo ${CREDENTIALS} | jq -r '.Credentials.SessionToken')"
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
-      - kubectl apply -f app.yaml
+      - kubectl apply -f manifest/
