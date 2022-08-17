@@ -54,7 +54,7 @@ spec:
         effect: "NoSchedule"
       containers:
       - name: supermario
-        image: CONTAINER_IMAGE
+        image: 652839185683.dkr.ecr.us-east-1.amazonaws.com/supermario:2022-08-17.11.18.46-f5d8a
         ports:
         - containerPort: 8080
         resources:
