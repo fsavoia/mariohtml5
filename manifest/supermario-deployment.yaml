@@ -10,8 +10,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:    
-      maxUnavailable: 50%
-      # maxSurge: "100%"
+      maxUnavailable: 0%
+      maxSurge: "100%"
   selector:
     matchLabels:
       app: supermario
@@ -27,34 +27,9 @@ spec:
           labelSelector:
             matchLabels:
               app: supermario
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: eks/nodegroup-name
-                operator: In
-                values:
-                - ng_app_managed
-          - weight: 1
-            preference:
-              matchExpressions:
-              - key: karpenter
-                operator: In
-                values:
-                - "true"
-      tolerations:
-      - key: "kubernetes.io/karpenter-taint"
-        operator: "Exists"
-        effect: "NoSchedule"
-      - key: "dedicated"
-        operator: "Equal"
-        value: "application"
-        effect: "NoSchedule"
       containers:
       - name: supermario
-        image: 652839185683.dkr.ecr.us-east-1.amazonaws.com/supermario:2022-08-17.11.18.46-f5d8a
+        image: nginx
         ports:
         - containerPort: 8080
         resources:
